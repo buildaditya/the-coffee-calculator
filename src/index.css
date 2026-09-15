@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Fredoka', cursive, sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --color-paper: #FFF6E9;
+  --color-ink: #221507;
+  --color-roast: #4A2C1D;
+  --color-punch: #FF3D7E;
+  --color-gold: #FFC94A;
+  --color-mint: #00C2A8;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Comic Hard Shadows */
+.shadow-hard-sm {
+  box-shadow: 2px 2px 0px var(--color-ink);
+}
+
+.shadow-hard {
+  box-shadow: 3.5px 3.5px 0px var(--color-ink);
+}
+
+.shadow-hard-lg {
+  box-shadow: 5px 5px 0px var(--color-ink);
+}
+
+.shadow-hard-roast {
+  box-shadow: 4px 4px 0px var(--color-roast);
+}
+
+.shadow-hard-roast-lg {
+  box-shadow: 6px 6px 0px var(--color-roast);
+}
+
+/* Stylized stroke for live numbers */
+.counter-text-shadow {
+  text-shadow: 
+    -2px -2px 0 #221507,  
+     2px -2px 0 #221507,
+    -2px  2px 0 #221507,
+     2px  2px 0 #221507,
+     4px  4px 0 #4A2C1D,
+     5px  5px 0 #4A2C1D;
+}
+
+@media (min-width: 640px) {
+  .counter-text-shadow {
+    text-shadow: 
+      -3px -3px 0 #221507,  
+       3px -3px 0 #221507,
+      -3px  3px 0 #221507,
+       3px  3px 0 #221507,
+       5px  5px 0 #4A2C1D,
+       7px  7px 0 #4A2C1D;
+  }
+}
+
+/* Alive Micro-Animations */
+@keyframes steam-rise {
+  0% {
+    transform: translateY(2px) scaleX(0.9);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-8px) scaleX(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-18px) scaleX(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes float-bean-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(4deg);
+  }
+}
+
+@keyframes float-bean-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(4px) rotate(-5deg);
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.18) rotate(12deg);
+    opacity: 1;
+  }
+}
+
+@keyframes cat-breathing {
+  0%, 100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.025, 1.05);
+  }
+}
+
+@keyframes lamp-warmth {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes drip-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(16px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(22px);
+    opacity: 0;
+  }
+}
+
+.animate-steam-1 {
+  animation: steam-rise 2.8s ease-out infinite;
+}
+
+.animate-steam-2 {
+  animation: steam-rise 3.2s ease-out infinite 1.4s;
+}
+
+.animate-float-slow {
+  animation: float-bean-slow 4.5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-bean-reverse 5s ease-in-out infinite 0.7s;
+}
+
+.animate-twinkle {
+  animation: star-twinkle 3s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: cat-breathing 4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.animate-lamp-warmth {
+  animation: lamp-warmth 5s ease-in-out infinite;
+}
+
+.animate-drip {
+  animation: drip-fall 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-steam-1,
+  .animate-steam-2,
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-twinkle,
+  .animate-breathe,
+  .animate-lamp-warmth,
+  .animate-drip {
+    animation: none !important;
+  }
+}
+

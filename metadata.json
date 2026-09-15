@@ -1,0 +1,6 @@
+{
+  "name": "The Coffee Calculator",
+  "description": "A live (and deeply unserious) count of how much coffee humanity has had today.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
